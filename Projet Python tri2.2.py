@@ -19,7 +19,7 @@ dimension_ecran = 512
 pyxel.init(dimension_ecran, dimension_ecran, title="Projet Tri2")
 
 #player[2] et player[3] sont les dimensions du joueur
-player = [0, 0, 64, 32]
+player = [0, 0, 32, 32]
 
 ennemis_liste = []
 
