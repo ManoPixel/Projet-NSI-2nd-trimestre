@@ -1,8 +1,18 @@
 import pyxel, random
 
-#Améliorer les vies > Batterie portable
+#Améliorer les vies -> Batterie portable
 #Ennemis qui apparaissent aux coins
-#
+#Fond d'écran
+#Attaque
+#Ennemis
+#Personnage
+#Boîte avec armes / fleche / chichote / bombe
+#Diversité ennemis / rareté
+#Farmer
+#Boss
+#Niveaux 
+#Construction de base
+#Potion de heal
 
 pyxel.init(1024, 1024, title="Projet Tri2")
 
