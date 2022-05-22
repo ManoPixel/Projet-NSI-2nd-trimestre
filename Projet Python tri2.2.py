@@ -19,10 +19,9 @@ dimension_ecran = 512
 pyxel.init(dimension_ecran, dimension_ecran, title="Projet Tri2")
 
 #player[2] et player[3] sont les dimensions du joueur
-player = [0, 0, 32, 32]
+player = [dimension_ecran/2 - 16, dimension_ecran/2 - 16, 32, 32]
 
 ennemis_liste = []
-
 #types_ennemi[0] et [1] est le premier ennemi, dont la taille 8x8, puis [2] et [3] est un autre
 types_ennemi = [8, 8, 16, 16, 10, 10]
 
@@ -55,20 +54,25 @@ def ennemis_creation(ennemis_liste):
     global dimension_ecran, types_ennemi
     
     if pyxel.frame_count % 30 == 0: #chaque seconde
+        
         apparaitre_aleatoire = random.randint(1, 4) #determination aleatoire d'apparation d'ennemi
-        ennemi_aleatoire = random.randint(0, len(types_ennemi)/2 - 1)
+        ennemi_aleatoire = random.randint(0, len(types_ennemi)/2 - 1) #determination aleatoire de type d'ennemi
         
         if apparaitre_aleatoire == 1: #apparition en haut
-            ennemis_liste.append([random.randint(0, dimension_ecran), 0- types_ennemi[1], types_ennemi[0 + (ennemi_aleatoire * 2)], types_ennemi[1 + (ennemi_aleatoire * 2)]])
+            ennemi = [ random.randint(0, dimension_ecran), 0- types_ennemi[1] ]
             
         if apparaitre_aleatoire == 2: #apparition a droite
-            ennemis_liste.append([dimension_ecran + types_ennemi[0], random.randint(0, dimension_ecran), types_ennemi[0 + ennemi_aleatoire * 2], types_ennemi[1 + ennemi_aleatoire * 2]])
+            ennemi = [ dimension_ecran + types_ennemi[0], random.randint(0, dimension_ecran) ]
             
         if apparaitre_aleatoire == 3: #apparition en bas
-            ennemis_liste.append([random.randint(0, dimension_ecran), dimension_ecran + types_ennemi[1], types_ennemi[0 + ennemi_aleatoire * 2], types_ennemi[1 + ennemi_aleatoire * 2] ])
+            ennemi = [ random.randint(0, dimension_ecran), dimension_ecran + types_ennemi[1] ]
             
         if apparaitre_aleatoire == 4: #apparition a gauche
-            ennemis_liste.append([0, random.randint(0-types_ennemi[0], dimension_ecran), types_ennemi[0 + ennemi_aleatoire * 2], types_ennemi[1 + ennemi_aleatoire * 2]])
+            ennemi = [ 0, random.randint(0-types_ennemi[0], dimension_ecran) ]
+        
+        ennemi += types_ennemi[ 0 + (ennemi_aleatoire * 2)], types_ennemi[1 + (ennemi_aleatoire * 2) ]
+        
+        ennemis_liste.append(ennemi)
         
     return ennemis_liste
 
@@ -128,9 +132,9 @@ def draw():
         for ennemi in ennemis_liste:     
             pyxel.rect(ennemi[0], ennemi[1], ennemi[2], ennemi[3], 4)
     
-    else:
+    if vies == 0:
         pyxel.quit()
         
 ####################################
 
-pyxel.run(update, draw) 
+pyxel.run(update, draw)
