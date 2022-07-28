@@ -17,7 +17,7 @@ import pyxel, random
 
 dimension_ecran = 256
 pyxel.init(dimension_ecran, dimension_ecran, title="Projet Tri2")
-pyxel.load("design.2.pyxres", True, False, False, False)
+pyxel.load("design.3.pyxres", True, False, False, False)
 
 #player[2] et player[3] sont les dimensions du joueur
 #player[4] est la direction ou le tir part si le joueur appui le boutton
