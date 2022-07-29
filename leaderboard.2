@@ -1,0 +1,57 @@
+def read_score():
+    with open("leaderboard.txt", "r") as leader:
+        player = input("Votre nick : ")
+        score = leader.readlines()
+        for i in score:
+            if player in i:
+                print(i)
+                
+
+
+def add_score():
+    with open("leaderboard.txt", "a") as leader:
+        player = input("Votre nick : ")
+        score = int(input("Votre Score : "))
+        leader.write(f"\n{player} = {score}")
+        
+
+def update_score():
+    with open("leaderboard.txt", 'r') as leader:
+        player = input("Votre nick : ")
+        new_score = int(input("Votre nouveau score : "))
+        score = []
+        score = leader.readlines()
+        with open("leaderboard.txt", 'w') as leader:
+                for number, line in enumerate(score):
+                    if number not in [2]:
+                        leader.write(line)
+    with open("leaderboard.txt", "a") as leader:
+        leader.write(f"{player} = {new_score}")def read_score():
+    with open("leaderboard.txt", "r") as leader:
+        player = input("Votre nick : ")
+        score = leader.readlines()
+        for i in score:
+            if player in i:
+                print(i)
+                
+
+
+def add_score():
+    with open("leaderboard.txt", "a") as leader:
+        player = input("Votre nick : ")
+        score = int(input("Votre Score : "))
+        leader.write(f"\n{player} = {score}")
+        
+
+def update_score():
+    with open("leaderboard.txt", 'r') as leader:
+        player = input("Votre nick : ")
+        new_score = int(input("Votre nouveau score : "))
+        score = []
+        score = leader.readlines()
+        with open("leaderboard.txt", 'w') as leader:
+                for number, line in enumerate(score):
+                    if number not in [2]:
+                        leader.write(line)
+    with open("leaderboard.txt", "a") as leader:
+        leader.write(f"{player} = {new_score}")
