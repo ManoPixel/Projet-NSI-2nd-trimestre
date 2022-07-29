@@ -1,0 +1,34 @@
+def read_score():
+    with open("leaderboard.txt", "r") as leader:
+        score = leader.readlines()
+#        for i in score:
+#            print(i)
+        print(score)
+                
+
+max_score = 15
+def add_score():
+    global max_score
+    with open("leaderboard.txt", "a") as leader:
+        score = max_score
+        leader.write(f"\n{score}")
+            
+def update_score():
+        global max_score
+        with open("leaderboard.txt", 'r') as leader:
+            score0 = leader.readlines()
+            if score0 == []:
+                add_score()
+            score1 = int(score0[1])          
+            new_score = max_score
+            if new_score > score1:
+                text = []
+                text = leader.readlines()
+                with open("leaderboard.txt", 'w') as leader:
+                    for number, line in enumerate(text):
+                        if number not in [2]:
+                            leader.write(line)
+                with open("leaderboard.txt", "a") as leader:
+                    leader.write(f"\n{new_score}")
+        
+print(update_score())
