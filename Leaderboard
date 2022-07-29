@@ -1,0 +1,31 @@
+def read_score():
+    with open("leaderboard.txt", "r") as leader:
+        player = input("Votre nick : ")
+        score = leader.readlines()
+        for i in score:
+            if player in i:
+                print(i)
+                
+
+
+def add_score():
+    with open("leaderboard.txt", "a") as leader:
+        player = input("Votre nick : ")
+        score = int(input("Votre Score : "))
+        leader.write(f"\n{player} = {score}")
+        
+
+def update_score():
+    with open("leaderboard.txt", 'r+') as leader:
+        player = input("Votre nick : ")
+        nouveau_score = int(input("Votre nouveau score : "))
+        score = leader.readlines()
+        for i in score:
+            if player in i:
+                leader.write(f"\n{player} = {nouveau_score}")
+                break
+        else:
+            print("Aucun score enregistre, entre add_score() pour add votre premier score")
+            
+
+
