@@ -627,7 +627,7 @@ def draw():
         
         pyxel.text(dimension_ecran/2 - 23, dimension_ecran/2 - 20, f"Score: {score}", 7)
         if text != []:
-            pyxel.text(dimension_ecran/2 - 26, dimension_ecran/2 + 14, f" Max score: {max_score}", 7)        
+            pyxel.text(dimension_ecran/2 - 26, dimension_ecran/2 + 14, f" Best score: {max_score}", 7)        
 ####################################
 
 pyxel.run(update, draw)
