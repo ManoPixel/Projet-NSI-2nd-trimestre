@@ -420,8 +420,6 @@ def update():
     elif commencer == 1:
         difficulte_choisie = choisir_difficulte()
         
-        pyxel.play(1, 1, 1, True)
-        
     elif vies > 0:
         
         pyxel.play(0, 0, True)
@@ -446,9 +444,6 @@ def update():
         
     elif vies <= 0:
         update_score()
-        
-        pyxel.play(1, 1, 200, True)
-
         ennemis_liste = []
         tirs_liste = []
         objets_liste = []
